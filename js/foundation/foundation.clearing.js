@@ -248,6 +248,7 @@
 
       if (!this.locked()) {
         visible_image.trigger('open.fndtn.clearing');
+        $(this.settings.skip_selector).addClass('hide');
         // set the image to the selected thumbnail
         loaded = this.load($image);
         if (loaded.interchange) {
@@ -282,6 +283,7 @@
         container = $('div', root).first();
         visible_image = $('.visible-img', container);
         visible_image.trigger('close.fndtn.clearing');
+        $(this.settings.skip_selector).removeClass('hide');
         this.settings.prev_index = 0;
         $('ul[' + this.attr_name() + ']', root)
           .attr('style', '').closest('.clearing-blackout')
